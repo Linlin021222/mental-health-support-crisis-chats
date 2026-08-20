@@ -1,0 +1,60 @@
+# Private competition data and derived predictions
+data/*
+!data/README.md
+outputs/*
+!outputs/README.md
+**/train.xlsx
+**/leaderboard.xlsx
+**/test.xlsx
+**/baseline_panda.csv
+**/panda*.csv
+**/*probabilities*.npz
+**/*predictions*.npz
+**/*_oof*.npz
+**/factor_baseline_oof.npz
+**/baseline_oof.npz
+
+# Model checkpoints and adapters
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+**/*_adapter/
+**/checkpoint-*/
+
+# Python and IDE files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Generated reports, caches and temporary files
+tmp/
+working/
+cache/
+thesis_tools/
+build_meeting_report.py
+build_progress_report.py
+*.log
+*.tmp
+*.zip
+*.pdf
+*.docx
+*.png
+*.jpg
+*.jpeg
+
+# Local credentials
+.env
+.env.*
+!.env.example
+hf_token.txt
+github_token.txt
+credentials.json
+secrets.*

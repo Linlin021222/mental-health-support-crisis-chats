@@ -1,0 +1,6 @@
+transformers>=4.51
+peft>=0.15
+accelerate
+bitsandbytes
+openpyxl
+scikit-learn

@@ -1,0 +1,36 @@
+\section{Code availability and repository structure}
+\label{app:code-availability}
+
+The implementation used in this dissertation is available at
+\url{https://github.com/Linlin021222/mental-health-support-crisis-chats}.
+The repository contains the source code for preprocessing, model training,
+user-disjoint validation, prediction, calibration and the Kaggle Qwen
+experiments. The competition data are not included because access to the UMD
+Reddit data is restricted. Model checkpoints, cached probabilities and
+leaderboard submissions are also excluded.
+
+The main local entry point is \texttt{main.py}. Project settings and label
+definitions are stored in \texttt{configs/config.py}. Data processing is in
+\texttt{preprocess/} and \texttt{datasets/}. Neural architectures are in
+\texttt{models/}, while training and validation procedures are in
+\texttt{trainer/}. Prediction and ensemble logic are stored in
+\texttt{inference/}. The classic BERT comparison is implemented in
+\texttt{baselines/bert\_multitask\_baseline.py}.
+
+The Task 1 Qwen3-8B QLoRA experiment is stored in
+\texttt{kaggle\_llm\_package/kaggle\_llm\_experiment.py}. The final Task 2
+pairwise model is stored in
+\texttt{kaggle\_factor\_reranker\_package/kaggle\_factor\_reranker\_v3.py},
+with its factor definitions in \texttt{factor\_taxonomy\_v3.py}. Each Kaggle
+folder contains a separate README describing fold evaluation and full-data
+training.
+
+To reproduce the local pipeline, an authorised user should place
+\texttt{train.xlsx} and \texttt{leaderboard.xlsx} in the \texttt{data/}
+directory and install the packages listed in \texttt{requirements.txt}. The
+command \texttt{python main.py --mode private-group-cv} runs the grouped local
+evaluation. Full-data training and prediction are started with
+\texttt{python main.py --mode train-full} and
+\texttt{python main.py --mode predict}. The exact final ensemble also requires
+the Qwen adapters and probability files generated on Kaggle. These files are
+not distributed in the public repository.
